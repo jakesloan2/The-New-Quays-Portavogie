@@ -86,7 +86,7 @@ There is also a `.placeholder-note` box at the top of the menu, visible on the p
 
 ## Editing content
 
-### Business details — `assets/js/site-config.js`
+### Business details — `js/site-config.js`
 
 Phone number, address, social links, booking mode and opening hours all live in this one file.
 
@@ -141,7 +141,7 @@ Add or remove `<li>` blocks freely. To add a whole new category, copy a `<sectio
 
 ### Adding photographs
 
-Images live in `assets/img/`. Each one has a set of WebP files at different widths (`name-600.webp`, `name-900.webp`, and so on) plus a `name.jpg` fallback for older browsers.
+Images live in `img/`. Each one has a set of WebP files at different widths (`name-600.webp`, `name-900.webp`, and so on) plus a `name.jpg` fallback for older browsers.
 
 To add a new photograph, generate the same set of sizes and follow the existing `<picture>` pattern. Always include `width` and `height` attributes — they reserve the space and stop the page jumping as images load.
 
@@ -153,7 +153,7 @@ To add a new photograph, generate the same set of sizes and follow the existing 
 
 This is the part of the build most worth understanding, because it is designed to change.
 
-Right now every **Book a table** button is a phone call. `assets/js/site-config.js`:
+Right now every **Book a table** button is a phone call. `js/site-config.js`:
 
 ```js
 booking: {
@@ -218,7 +218,7 @@ No framework, no jQuery, no icon library, no tag manager, no tracking pixel. Mea
 
 The Google Maps embed on the Contact page is behind a click-to-load facade. The map only loads when a visitor asks for it, which keeps third-party cookies off the page by default and keeps the Contact page fast.
 
-**One improvement worth making:** fonts currently load from the Google Fonts CDN. Self-hosting them removes a third-party connection and speeds up first paint. Download the Fraunces and Inter Tight WOFF2 files, put them in `assets/fonts/`, and replace the `<link>` in each `<head>` with local `@font-face` rules using `font-display: swap`.
+**One improvement worth making:** fonts currently load from the Google Fonts CDN. Self-hosting them removes a third-party connection and speeds up first paint. Download the Fraunces and Inter Tight WOFF2 files, put them in `fonts/`, and replace the `<link>` in each `<head>` with local `@font-face` rules using `font-display: swap`.
 
 ---
 
