@@ -45,6 +45,15 @@
   "currenciesAccepted": "GBP",
   "hasMenu": "https://REPLACE-WITH-DOMAIN.co.uk/menu.html",
   "acceptsReservations": "True",
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday","Friday"], "opens": "10:00", "closes": "20:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "20:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "19:30"}
+  ],
+  "sameAs": [
+    "https://www.facebook.com/share/193uvcptFa/",
+    "https://www.instagram.com/thenewquays"
+  ],
   "award": "Knorr Recommended Roast 2026",
   "image": ["https://REPLACE-WITH-DOMAIN.co.uk/img/harbour-aerial.jpg", "https://REPLACE-WITH-DOMAIN.co.uk/img/exterior-terrace.jpg", "https://REPLACE-WITH-DOMAIN.co.uk/img/dish-mussels.jpg"],
   "address": {
@@ -165,16 +174,13 @@
             <dd class="muted" style="font-size:.9375rem;margin-top:.35rem">All reservations are taken by phone.</dd>
           </div>
           <div>
-            <dt>Email</dt>
-            <dd>[EMAIL ADDRESS]</dd>
-          </div>
-          <div>
             <dt>Parking</dt>
             <dd>Free parking on site, with further parking at the harbour car park nearby.</dd>
           </div>
           <div>
             <dt>Social</dt>
-            <dd>[FACEBOOK URL]<br>[INSTAGRAM URL]</dd>
+            <dd><a href="https://www.facebook.com/share/193uvcptFa/" rel="noopener">Facebook</a><br>
+                <a href="https://www.instagram.com/thenewquays" rel="noopener">Instagram</a></dd>
           </div>
         </dl>
       </div>
@@ -183,7 +189,19 @@
         <h2 style="font-size:clamp(1.4rem,2.4vw,2rem)">Opening hours</h2>
 
         <h3 style="font-family:var(--sans);font-size:var(--fs-label);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-top:2rem">Restaurant</h3>
-        <p class="muted mt-m">[OPENING HOURS &mdash; add the restaurant&rsquo;s confirmed opening times here, and in <code>js/site-config.js</code> so the &ldquo;open now&rdquo; indicator works.]</p>
+        <p style="margin-top:.75rem"><span class="status-pill" data-status="restaurant" hidden></span></p>
+        <table class="hours-table" style="margin-top:.75rem">
+          <caption class="visually-hidden">Restaurant opening hours</caption>
+          <tbody>
+            <tr data-day="1"><th scope="row">Monday</th><td>Closed</td></tr>
+            <tr data-day="2"><th scope="row">Tuesday</th><td>Closed</td></tr>
+            <tr data-day="3"><th scope="row">Wednesday</th><td>Closed</td></tr>
+            <tr data-day="4"><th scope="row">Thursday</th><td>10am &ndash; 8pm</td></tr>
+            <tr data-day="5"><th scope="row">Friday</th><td>10am &ndash; 8pm</td></tr>
+            <tr data-day="6"><th scope="row">Saturday</th><td>12pm &ndash; 8.30pm</td></tr>
+            <tr data-day="0"><th scope="row">Sunday</th><td>12pm &ndash; 7.30pm</td></tr>
+          </tbody>
+        </table>
 
         <h3 style="font-family:var(--sans);font-size:var(--fs-label);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);font-weight:600;margin-top:2.5rem">Besties Caf&eacute;</h3>
         <p style="margin-top:.75rem"><span class="status-pill" data-status="besties" hidden></span></p>
@@ -209,14 +227,13 @@
 <section class="section--tight">
   <div class="wrap">
     <h2 class="visually-hidden">Map</h2>
-    <div class="map-facade" data-loaded="false">
-      <div class="map-facade__prompt">
-        <p class="eyebrow eyebrow--center">Google Maps</p>
-        <p class="muted" style="max-width:34ch;margin-inline:auto">The map is loaded from Google. We only load it when you ask, so the page sets no third-party cookies before then.</p>
-        <p style="margin-top:1.25rem"><button class="btn btn--ghost" type="button" data-load-map="https://maps.google.com/maps?q=81%20New%20Harbour%20Road%2C%20Portavogie%2C%20BT22%201EB&amp;output=embed">Show the map</button></p>
-        <p style="margin-top:1rem"><a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=81+New+Harbour+Road+Portavogie+BT22+1EB" rel="noopener">Open in Google Maps <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
-    </div>
+    <iframe
+      title="Map showing The New Quays, 81 New Harbour Road, Portavogie BT22 1EB"
+      src="https://maps.google.com/maps?q=81%20New%20Harbour%20Road%2C%20Portavogie%2C%20BT22%201EB&amp;z=15&amp;output=embed"
+      width="100%" height="460" style="border:0;display:block" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen></iframe>
+    <p class="mt-m"><a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=81+New+Harbour+Road+Portavogie+BT22+1EB" rel="noopener">Open in Google Maps <span aria-hidden="true">&rarr;</span></a></p>
     <p class="muted mt-m" style="font-size:.9375rem">Coming down the Ards Peninsula, follow the coast road into Portavogie and turn for the harbour. We are on New Harbour Road, on the seaward side.</p>
   </div>
 </section>
@@ -231,7 +248,7 @@
       <details><summary>What food does The New Quays serve?</summary><div><p>Seafood is the focus, including the Portavogie prawn landed by the local fleet. Alongside it there are grills, a children&rsquo;s menu, vegetarian options and a Sunday roast, which received a Knorr Recommended Roast 2026 award. See the <a href="menu.html">full menu</a>.</p></div></details>
       <details><summary>Is there parking?</summary><div><p>Yes &mdash; free parking on site, with further parking at the harbour car park a short walk away.</p></div></details>
       <details><summary>Is The New Quays dog friendly?</summary><div><p>Yes. Dogs are welcome and there is outdoor seating on the terrace. Let us know when you ring.</p></div></details>
-      <details><summary>What are the opening hours?</summary><div><p>Besties Caf&eacute; opens Thursday to Saturday, 10am to 3pm, and Sunday 10am to 12pm. Restaurant hours: [OPENING HOURS].</p></div></details>
+      <details><summary>What are the opening hours?</summary><div><p>The restaurant opens Thursday and Friday 10am&ndash;8pm, Saturday 12pm&ndash;8.30pm and Sunday 12pm&ndash;7.30pm. It is closed Monday to Wednesday. Besties Caf&eacute; opens Thursday to Saturday 10am&ndash;3pm and Sunday 10am&ndash;12pm.</p></div></details>
       <details><summary>What is Besties Caf&eacute;?</summary><div><p>Besties is our caf&eacute;, in its own room inside the same building. It serves breakfast, brunch, sandwiches, scones and traybakes, and shares our phone number. <a href="besties.html">More about Besties</a>.</p></div></details>
     </div>
   </div>
@@ -265,10 +282,10 @@
       </div>
       <div>
         <h3>Hours</h3>
-        <p class="muted" style="font-size:.9375rem">Restaurant<br><strong style="color:var(--paper)">[OPENING HOURS]</strong></p>
+        <p class="muted" style="font-size:.9375rem">Restaurant<br><strong style="color:var(--paper)">Thu&ndash;Fri 10am&ndash;8pm<br>Sat 12&ndash;8.30pm<br>Sun 12&ndash;7.30pm<br>Mon&ndash;Wed closed</strong></p>
         <p class="muted" style="font-size:.9375rem;margin-top:.75rem">Besties Café<br><strong style="color:var(--paper)">Thu&ndash;Sat 10am&ndash;3pm<br>Sun 10am&ndash;12pm</strong></p>
         <a class="btn btn--primary" style="margin-top:1.25rem" href="tel:+442842772225" data-book>Book a table</a>
-        <p class="muted" style="font-size:.8125rem;margin-top:1rem">[FACEBOOK URL] &middot; [INSTAGRAM URL]</p>
+        <p style="font-size:.8125rem;margin-top:1rem"><a href="https://www.facebook.com/share/193uvcptFa/" rel="noopener">Facebook</a> &middot; <a href="https://www.instagram.com/thenewquays" rel="noopener">Instagram</a></p>
       </div>
     </div>
     <div class="footer-bottom">

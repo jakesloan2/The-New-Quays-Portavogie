@@ -28,7 +28,6 @@ window.SITE = {
     // E.164 format for tel: links — works from any country
     tel: "+442842772225"
   },
-  email: "[EMAIL ADDRESS]",
   address: {
     street: "81 New Harbour Road",
     locality: "Portavogie",
@@ -42,8 +41,8 @@ window.SITE = {
 
   /* ---- Social ---- */
   social: {
-    facebook: "[FACEBOOK URL]",
-    instagram: "[INSTAGRAM URL]",
+    facebook: "https://www.facebook.com/share/193uvcptFa/",
+    instagram: "https://www.instagram.com/thenewquays",
     tripadvisor: "[TRIPADVISOR URL]"
   },
 
@@ -81,16 +80,18 @@ window.SITE = {
      ============================================================ */
   hours: {
 
-    // TODO: CONFIRM WITH CLIENT.
-    // Public listings disagree on the restaurant's hours, so these
-    // are deliberately left empty rather than guessed. Until they
-    // are filled in, the site shows "[OPENING HOURS]" and the
-    // open/closed indicator stays hidden.
+    // Confirmed from the venue's Google Business Profile.
     restaurant: {
       label: "Restaurant",
-      confirmed: false,
+      confirmed: true,
       days: {
-        0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: []
+        0: [["12:00", "19:30"]],   // Sunday
+        1: [],                     // Monday    — closed
+        2: [],                     // Tuesday   — closed
+        3: [],                     // Wednesday — closed
+        4: [["10:00", "20:00"]],   // Thursday
+        5: [["10:00", "20:00"]],   // Friday
+        6: [["12:00", "20:30"]]    // Saturday
       }
     },
 
