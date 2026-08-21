@@ -70,7 +70,10 @@ Everything the client has not yet confirmed is wrapped in `[SQUARE BRACKETS]` so
 
 | Placeholder | Where | Notes |
 |---|---|---|
+| `[OPENING HOURS]` | `contact.html`, footer of every page, `site-config.js` | **Most important.** Public listings disagree on the restaurant's hours, so nothing was guessed. See "Opening hours" below. |
 | `[DISH NAME]`, `[£0.00]` | `menu.html` | The whole menu is placeholder. See "Editing the menu" below. |
+| `[EMAIL ADDRESS]` | `contact.html`, `site-config.js` | |
+| `[FACEBOOK URL]`, `[INSTAGRAM URL]` | footer, `contact.html`, `site-config.js` | Also add them to the `sameAs` array in the JSON-LD |
 | `[LATITUDE]`, `[LONGITUDE]` | `site-config.js` | Take the exact pin from Google Business Profile, then add a `geo` block to the JSON-LD |
 | `[Add the family and ownership story...]` | `about.html` | Should be in the owners' own words |
 | `[Introduce key team members...]` | `about.html` | |
@@ -93,7 +96,7 @@ Phone number, address, social links, booking mode and opening hours all live in 
 
 Two separate schedules, because the restaurant and Besties keep different days and times but share one phone line.
 
-Both schedules are confirmed and in place. To change either, edit the relevant block:
+Besties' hours are confirmed and already in place. The restaurant's are not. To add them:
 
 ```js
 restaurant: {
@@ -243,5 +246,15 @@ Current versions of Chrome, Edge, Firefox and Safari, on desktop and mobile. The
 ## Known limitations
 
 - **Header and footer are duplicated in each HTML file.** With no build step there is no way to share them. If you change a navigation link, change it in all eight files. This was the trade-off for a site anyone can edit without tooling. If the page count grows much beyond this, revisit it.
+- **Restaurant opening hours are absent, not wrong.** Deliberate. Nothing was invented.
 - **The menu is placeholder content.** The site cannot go live until it is replaced.
 - **Commercial use of the George Best name and likeness** should be confirmed with the estate before any memorabilia photography or biographical content is added to the Besties page. The current copy refers only to the café's own name and the public mural near the harbour.
+
+
+---
+
+## Cache busting
+
+The stylesheet and scripts are linked with a version query, e.g. `css/style.css?v=2`.
+
+**Whenever you change `css/style.css` or either JS file, bump that number in all 8 HTML files** (`?v=3`, `?v=4` and so on). Without it, browsers and GitHub's CDN will keep serving the old cached copy and your change appears to do nothing.

@@ -358,6 +358,26 @@
   .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: var(--sp-m); }
   .hero__actions .btn--ghost { color: var(--paper); border-color: rgba(250,247,240,.55); }
   .hero__actions .btn--ghost:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+  /* Mobile: the hero photograph is landscape (roughly 5:3), so filling a tall
+     portrait viewport with object-fit:cover crops away most of the building.
+     Below 46rem the hero stacks instead — photo at close to its natural shape,
+     type beneath on ink. More of the subject, and it reads as a deliberate
+     magazine cover rather than a badly cropped background. */
+  @media (max-width: 46rem) {
+    .hero { min-height: 0; display: flex; flex-direction: column; justify-content: flex-start; background: var(--ink); }
+    .hero__media { position: relative; inset: auto; width: 100%; aspect-ratio: 4 / 3; flex: none; }
+    /* Bias the crop upward: the foreground road carries no information. */
+    .hero__media img { object-position: center 38%; }
+    .hero__media::after {
+      background: linear-gradient(180deg, rgba(10,8,6,.42) 0%, rgba(10,8,6,0) 34%, rgba(10,8,6,0) 62%, rgba(10,8,6,.95) 100%);
+    }
+    .hero__inner { padding-block: var(--sp-s) var(--sp-xl); margin-top: -2.5rem; }
+    .hero h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
+    .hero__lead { margin-top: var(--sp-xs); }
+    .hero__actions { margin-top: var(--sp-s); }
+    .hero__actions .btn { flex: 1 1 auto; }
+  }
+
   .hero__scroll {
     position: absolute; right: var(--gutter); bottom: clamp(3rem, 8vw, 6rem);
     writing-mode: vertical-rl; font-size: var(--fs-label); letter-spacing: 0.24em;
